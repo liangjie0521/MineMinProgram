@@ -4,8 +4,9 @@
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
     </block>
   </view>
 
+  <view class='userinfo-bottom'>这是底部</view>
 </view>

@@ -1,21 +1,59 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
+
+.index-hd {
+  text-align: center;
+}
+
+.index-bd {
+  padding: 0 10rpx 20rpx 10rpx;
   align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.index-image-box {
+  border-radius: 5rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.index-hd-image {
+  padding: 10rpx 0 10rpx;
+  width: 100%;
 }
 
-.usermotto {
-  margin-top: 200px;
+.index-list {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.index-list-title {
+  font-size: 36rpx;
+  color: #1e82d2;
+  background: red;
+  height: 60rpx;
+  align-self: center;
+  text-align: center
+}
+
+.index-list-item-title {
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  border-radius: 4rpx;
+  background-color: #fff;
+  height: 100rpx;
+  margin: 10rpx 0 10rpx;
+}
+
+.index-video-box {
+  padding: 10rpx;
+  background: white;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border-radius: 5rpx;
+}
+
+.myVideo {
+  width: 100%;
+}
+
+.other-navigator-hover{
+  color: gray;
+  background-color: red
 }

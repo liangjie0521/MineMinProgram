@@ -1,2 +1,4 @@
 <!--pages/player/index.wxml-->
-<text>pages/player/index.wxml</text>
+<view class='container'>
+  <text>pages/player/index.wxml</text>
+</view>

@@ -1,53 +1,69 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const requestUrl = require('../../config').newDay
 
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    data: {},
+    hasData: false
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(res) {
+    console.log("share data" + res)
+    return {
+      path: "/pages/index/index?id=123",
+      title: "这是一个分享~~~~"
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  onLoad: function(option) {
+    this.loadData()
+  },
+  videoErrorCallBack(e){
+
+  },
+  onPullDownRefresh(){
+    wx.showToast({
+      title: '加载中...',
+      icon:'loading'
+    })
+    this.loadData()
+  },
+  loadData(){
+    const that = this;
+    wx.request({
+      url: requestUrl,
+      data: {
+
+      },
+      method: "get",
+      success(response) {
+        console.log(response)
+        console.log(response.data.error)
+        if (response.statusCode == 200) {
+          console.log(response.data.results);
+          console.log(response.data.results.福利[0].url)
+          that.setData({
+            data: response.data.results,
+            headImageUrl: response.data.results.福利[0].url,
+            videoData: response.data.results.休息视频[0],
+            hasData: true
+          })
+        }
+        that.stopPullDownRefresh()
+      },
+      fail(errMsg) {
+        that.stopPullDownRefresh()
+      }
+    })
+  },
+  stopPullDownRefresh(){
+    wx.stopPullDownRefresh({
+      complete(res){
+        wx.hideToast()
+      }
     })
   }
 })

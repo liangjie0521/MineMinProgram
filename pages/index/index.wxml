@@ -1,2 +1,29 @@
 <!--index.wxml-->
-
+<view class="container">
+  <view wx:if="{{hasData}}" class='index'>
+    <view class='index-bd'>
+      <view class='index-image-box'>
+        <image src="{{headImageUrl}}" class='index-hd-image' mode='widthFix'></image>
+      </view>
+      <block wx:for-items="{{data}}" wx:key="key" wx:for-index="key">
+        <view wx:if="{{key!='福利'&&key!='休息视频'}}" class='index-list'>
+          <view class='index-list-title'>{{key}}</view>
+          <view class="list-items">
+            <block wx:for-items="{{item}}" wx:for-item="item_item" wx:key="{{list_data}}">
+              <navigator url="/pages/detail/detail?title={{item_item.desc}}&id={{item_item._id}}" hover-class='other-navigator-hover'>
+                <view class='index-list-item-title'>
+                  {{item_item.desc}}
+                </view>
+              </navigator>
+            </block>
+          </view>
+        </view>
+      </block>
+      <view class='index-video-box'>
+        <view class='index-list-title'>休息视频</view>
+        <video id='myVideo' class='myVideo' src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+          binderror="videoErrorCallBack" show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
+      </view>
+    </view>
+  </view>
+</view>

@@ -95,6 +95,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
-  }
+    return {
+      path: "/pages/mine/index",
+      title: "这是一个分享~~~~"
+    }
+  },
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
 })

@@ -1,1 +1,2 @@
 /* pages/player/index.wxss */
+@import "../index/index.wxss"
