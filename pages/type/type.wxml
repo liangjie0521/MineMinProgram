@@ -13,7 +13,7 @@
             <view wx:if="{{item.images!=undefine}}" class='content-list-item-images-box'>
               <block wx:for-items="{{item.images}}" wx:key="iamge" wx:for-item="images">
                 <view class='content-list-item-image'>
-                  <image src="{{images}}" mode='center'></image>
+                  <image src="{{images}}" mode='center' lazy-load='true'></image>
                 </view>
               </block>
             </view>

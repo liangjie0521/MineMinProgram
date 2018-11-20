@@ -6,8 +6,7 @@
     "pages/player/index",
     "pages/roomcard/index",
     "pages/detail/detail",
-    "pages/type/type",
-    "pages/statics"
+    "pages/type/type"
   ],
   "window": {
     "backgroundTextStyle": "light",
