@@ -1,0 +1,33 @@
+/* pages/type/type.wxss */
+
+.content-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-list-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5rpx;
+  border: 10rpx;
+  border-color: #999;
+  margin: 10rpx 0 10rpx;
+  padding: 10rpx;
+}
+
+.content-list-item-title {
+  font-size: 30rpx;
+  color: #1e82d2;
+}
+
+.content-list-item-images-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start
+}
+
+.content-list-item-image {
+  width: 220rpx;
+}

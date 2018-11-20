@@ -33,6 +33,7 @@ Page({
   },
   loadData(){
     const that = this;
+    console.log("url is:",requestUrl)
     wx.request({
       url: requestUrl,
       data: {

@@ -1,0 +1,33 @@
+<!--pages/type/type.wxml-->
+<import src="../common/foot.wxml" />
+
+<view class='container'>
+  <scroll-view>
+    <view class='content'>
+      <view wx:if="{{hasData}}" class='content-list'>
+        <block wx:for-items="{{data}}" wx:key="{{item._id}}">
+          <view class='content-list-item'>
+            <view class='content-list-item-title'>
+              {{item.desc}}
+            </view>
+            <view wx:if="{{item.images!=undefine}}" class='content-list-item-images-box'>
+              <block wx:for-items="{{item.images}}" wx:key="iamge" wx:for-item="images">
+                <view class='content-list-item-image'>
+                  <image src="{{images}}" mode='center'></image>
+                </view>
+              </block>
+            </view>
+            <view wx:if="{{title==='福利'}}" class='content-list-item-images-box'>
+              <view class='content-list-item-image'>
+                <image src="{{item.url}}" mode='widthFix' lazy-load='true'></image>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <!-- 无数据界面 -->
+    </view>
+
+    <template is="foot" />
+  </scroll-view>
+</view>

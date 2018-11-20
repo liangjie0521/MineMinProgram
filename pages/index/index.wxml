@@ -3,11 +3,15 @@
   <view wx:if="{{hasData}}" class='index'>
     <view class='index-bd'>
       <view class='index-image-box'>
-        <image src="{{headImageUrl}}" class='index-hd-image' mode='widthFix'></image>
+        <navigator url="/pages/type/type?type=福利">
+          <image src="{{headImageUrl}}" class='index-hd-image' mode='widthFix'></image>
+        </navigator>
       </view>
       <block wx:for-items="{{data}}" wx:key="key" wx:for-index="key">
         <view wx:if="{{key!='福利'&&key!='休息视频'}}" class='index-list'>
-          <view class='index-list-title'>{{key}}</view>
+          <navigator url="/pages/type/type?type={{key}}">
+            <view class='index-list-title'>{{key}}</view>
+          </navigator>
           <view class="list-items">
             <block wx:for-items="{{item}}" wx:for-item="item_item" wx:key="{{list_data}}">
               <navigator url="/pages/detail/detail?title={{item_item.desc}}&id={{item_item._id}}" hover-class='other-navigator-hover'>

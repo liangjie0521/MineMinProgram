@@ -1,0 +1,5 @@
+<template name="foot">
+  <view class='foot'>
+    公用底部
+  </view>
+</template>

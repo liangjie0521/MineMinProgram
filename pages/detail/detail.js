@@ -69,6 +69,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+      return{
+        title:"这是一个小程序",
+        path:"/pages/index/index"
+      }
   }
 })

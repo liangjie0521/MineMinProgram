@@ -1,4 +1,11 @@
 <!--pages/detail/detail.wxml-->
+<import src="../common/foot.wxml" />
+
 <view class='container'>
-  <text>{{title}}</text>
+  <view class='content'>
+    <text>{{title}}</text>
+  </view>
+
+  <template is="foot" />
+
 </view>
